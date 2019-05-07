@@ -64,7 +64,7 @@ variable "app_service_plan_id" {
 
 variable "sku" {
   type        = string
-  default     = "Basic_B1"
+  default     = "Free_F1"
   description = "The SKU of an app service plan to create for the web app."
 }
 
