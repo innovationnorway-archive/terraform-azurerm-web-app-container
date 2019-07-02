@@ -128,6 +128,19 @@ variable "docker_registry_password" {
   description = "The container registry password."
 }
 
+variable "storage_mounts" {
+  type = list(object({
+    name         = string
+    type         = string
+    account_name = string
+    share_name   = string
+    access_key   = string
+    mount_path   = string
+  }))
+  default     = []
+  description = "List of storage mounts."
+}
+
 variable "tags" {
   type        = map(string)
   default     = {}

@@ -236,4 +236,16 @@ module "web_app_container" {
 | `docker_registry_username` | `string` | The container registry username. |
 | `docker_registry_url` | `string` | The container registry url. Default: `https://index.docker.io` |
 | `docker_registry_password` | `string` | The container registry password. |
+| `storage_mounts` | `list` | List of storage mounts for the web app. |
 | `tags` | `map` | A mapping of tags to assign to the web app. |
+
+The `storage_mounts` object must have the following keys:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `name` | `string` | The identifier of the storage mount. |
+| `type` | `string` | The type of storage. Possible values are `AzureBlob` and `AzureFiles`. |
+| `account_name` | `string` | The name of the storage account. |
+| `share_name` | `string` | The name of the file share or container. |
+| `access_key` | `string` | The access key for the storage account. |
+| `mount_path` | `string` | The path to mount the storage within the web app. |
