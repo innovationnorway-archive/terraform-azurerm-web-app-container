@@ -274,6 +274,7 @@ The `auth` object accepts the following keys:
 | --- | --- | --- |
 | `enabled` | `bool` | Whether authentication is enabled for the web app. |
 | `token_store_enabled` | `bool` | Whether token store is enabled for the web app. |
+| `unauthenticated_client_action` | `string` | What should happen in case of an unauthenticated request? The options are: `AllowAnonymous`, `RedirectToLoginPage` |
 | `active_directory` | `object` | Azure Active Directory auth settings. This should be `active_directory` object. | 
 
 The `active_directory` object accepts the following keys:

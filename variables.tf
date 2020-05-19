@@ -245,5 +245,6 @@ locals {
       client_secret = ""
     }
     token_store_enabled = true
+    unauthenticated_client_action = "AllowAnonymous"
   }, var.auth)
 }
