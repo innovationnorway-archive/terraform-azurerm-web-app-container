@@ -76,6 +76,7 @@ resource "azurerm_app_service" "main" {
         resource      = local.auth.active_directory.client_id
       }
       default_provider = "AzureActiveDirectory"
+      unauthenticated_client_action = local.auth.unauthenticated_client_action
 
       dynamic "active_directory" {
         for_each = [auth_settings.value.active_directory]
