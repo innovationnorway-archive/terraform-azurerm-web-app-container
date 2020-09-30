@@ -90,6 +90,17 @@ resource "azurerm_app_service" "main" {
     }
   }
 
+  dynamic "connection_string" {
+    for_each = local.connection_strings
+    iterator = c
+
+    content {
+      name  = c.value.name
+      type  = c.value.type
+      value = c.value.value
+    }
+  }
+
   tags = var.tags
 
   depends_on = [azurerm_key_vault_secret.main]

@@ -146,6 +146,12 @@ variable "tags" {
   description = "A mapping of tags to assign to the web app."
 }
 
+variable "connection_strings" {
+  type        = any
+  default     = []
+  description = "List of connection strings."
+}
+
 locals {
   app_settings = {
     "WEBSITES_CONTAINER_START_TIME_LIMIT" = var.start_time_limit
@@ -246,4 +252,12 @@ locals {
     }
     token_store_enabled = true
   }, var.auth)
+
+  connection_strings = [
+    for c in var.connection_strings : merge({
+      name  = ""
+      type  = ""
+      value = ""
+    }, c)
+  ]
 }
