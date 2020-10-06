@@ -232,6 +232,7 @@ module "web_app_container" {
 | `docker_registry_password` | `string` | The container registry password. |
 | `storage_mounts` | `list` | List of storage mounts for the web app. |
 | `tags` | `map` | A mapping of tags to assign to the web app. |
+| `connection_string` | `object` | This should be `connection_string` object. |
 
 The `plan` object accepts the following keys:
 
@@ -282,3 +283,10 @@ The `active_directory` object accepts the following keys:
 | --- | --- | --- |
 | `client_id` | `string` | The ID of the Azure AD application. |
 | `client_secret` | `string` | The password of the Azure AD Application. |
+
+The `connection_string` object accepts the following keys:
+| Name | Type | Description |
+| --- | --- | --- |
+| `name` | `string` | (Required) The name of the Connection String. |
+| `type` | `string` | (Required) The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`. |
+| `value` | `string` | (Required) The value for the Connection String. |
